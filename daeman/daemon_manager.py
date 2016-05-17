@@ -52,7 +52,7 @@ class DaemonManager(object):
     def stop(self):
         pid = self._get_pid(self.pid_path)
         if (pid is None):
-            daemon_is_not_running_error()
+            self.daemon_is_not_running_error()
             return
         try:
             os.kill(pid, signal.SIGTERM)
